@@ -19,6 +19,7 @@ from ..utils import isfilelike, merge_offset_ranges, other_paths
 
 logger = logging.getLogger("fsspec.reference")
 
+logger.info("SKSKSKSKSKSKSKSKNDNDNDNDNDNDN")
 
 class ReferenceNotReachable(RuntimeError):
     def __init__(self, reference, target, *args):
@@ -91,8 +92,8 @@ class ReferenceFileSystem(AsyncFileSystem):
         **kwargs,
     ):
         """
-
-        Parameters
+        DKDKDKLDLKDKLDKLLK
+        Parameters slsklslksksksksk
         ----------
         fo : dict or str
             The set of references to use for this instance, with a structure as above.
@@ -160,7 +161,7 @@ class ReferenceFileSystem(AsyncFileSystem):
             dic = dict(**(ref_storage_args or target_options or {}), **extra)
             # text JSON
             with open(fo, "rb", **dic) as f:
-                logger.info("Read reference from URL %s", fo)
+                logger.info("Read reference from dkdkdkdkdkdkdk URL %s", fo)
                 text = f.read()
         else:
             # dictionaries
@@ -306,6 +307,7 @@ class ReferenceFileSystem(AsyncFileSystem):
         callback.absolute_update(len(data))
 
     def get(self, rpath, lpath, recursive=False, **kwargs):
+        logger.info("GET: %s, %s",rpath, lpath)
         if recursive:
             # trigger directory build
             self.ls("")
@@ -321,6 +323,7 @@ class ReferenceFileSystem(AsyncFileSystem):
                 fs.pipe_file(local, data[remote])
 
     def cat(self, path, recursive=False, on_error="raise", **kwargs):
+        logger.info("DKDKDKDKDKDKDK")
         if isinstance(path, str) and recursive:
             raise NotImplementedError
         if isinstance(path, list) and (recursive or any("*" in p for p in path)):
